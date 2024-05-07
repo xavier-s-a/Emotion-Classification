@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1, h2 {
+            color: #444;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 20px;
+        }
+        #webcam {
+            width: 640px;
+            height: 480px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Emotion Detection System</h1>
+
+    <h2>Upload Image</h2>
+    <form action="/predict_image" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Detect Emotions in Image</button>
+    </form>
+
+    <div class="container">
+        <h3>Uploaded Image</h3>
+        <img id="uploadedImage" src="#" alt="Uploaded Image will appear here...">
+        <h3>Processed Image</h3>
+        <img id="processedImage" src="#" alt="Processed Image will appear here...">
+    </div>
+
+    <h2>Upload Video</h2>
+    <form action="/predict_video" method="post" enctype="multipart/form-data">
+        <input type="file" name="media" required>
+        <button type="submit">Detect Emotions in Video</button>
+    </form>
+
+    <h2>Webcam Live Stream</h2>
+    <button onclick="document.getElementById('webcam').src='/webcam';">Start Webcam</button>
+    <button onclick="document.getElementById('webcam').src='';">Stop Webcam</button>
+    <img id="webcam" src="#" alt="Webcam live feed">
+
+    <script>
+        const imageForm = document.querySelector('form');
+        imageForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(imageForm);
+            const uploadedImage = document.getElementById('uploadedImage');
+            const processedImage = document.getElementById('processedImage');
+            uploadedImage.src = URL.createObjectURL(event.target[0].files[0]);
+
+            fetch('/predict_image', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.image) {
+                    // Assuming the server returns a base64 encoded image
+                    const imageSrc = 'data:image/jpeg;base64,' + data.image;
+                    processedImage.src = imageSrc;
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to process the image');
+            });
+        });
+    </script>
+</body>
+</html>
