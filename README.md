@@ -64,8 +64,8 @@ python train.py
 
 ## Team Members
 
--- **Amith:** Focused on face detection module development, testing the system on images, and integrating the model with video and webcam functionalities.
--- **Xavier:** Responsible for training the neural network and developing the Graphical User Interface (GUI).
+- **Amith:** Focused on face detection module development, testing the system on images, and integrating the model with video and webcam functionalities.
+- **Xavier:** Responsible for training the neural network and developing the Graphical User Interface (GUI).
 
 
 ## Team Contributions
