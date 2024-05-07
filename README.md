@@ -62,25 +62,5 @@ python train.py
 
 
 
-## Team Members
+[URL for Fer2013 data set]([<https://duckduckgo.com/?q=test this!&t=ffab>](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data))
 
-- **Amith:** Focused on face detection module development, testing the system on images, and integrating the model with video and webcam functionalities.
-- **Xavier:** Responsible for training the neural network and developing the Graphical User Interface (GUI).
-
-
-## Team Contributions
-**Xavier** 
-
-### Responsibilities:
-
-- Neural Network Development: Designed and implemented the EmotionNet neural network using PyTorch. 
-- GUI Development: Developed the  graphical user interface using Tkinter. This interface allows users to upload images and videos, and to interact with the system in real-time via a webcam.
-- Project Integration: Integration of different components of the project, making the transition between the neural network processing and the user interface smooth.
-
-**Amith**
-
-### Responsibilities:
-
-- Face Detection Module: Implemented the face detection functionality using the MTCNN model. Ensuring that the system could identify and process faces accurately from various inputs.
-- System Testing: Conducted extensive testing of the emotion recognition capabilities on static images, ensuring robust performance.
-- Integration with Real-Time Systems: Responsible for integrating the face detection system with real-time video and webcam feeds, allowing the system to perform emotion detection live.
