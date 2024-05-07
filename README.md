@@ -36,8 +36,13 @@ pip install -r requirements.txt
 
 ```
 ## Usage
+### Testing the System in browser
+Run the following command to use the pre-trained model for detecting emotions in images or videos:
+```bash
+python app.py
+```
 
-### Testing the System
+### Testing the System with CLI
 
 Run the following command to use the pre-trained model for detecting emotions in images or videos:
 ```bash
