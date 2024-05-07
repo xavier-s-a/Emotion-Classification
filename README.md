@@ -62,5 +62,5 @@ python train.py
 
 
 
-[< URL for Fer2013 data set>](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data)
+[URL for Fer2013 data set](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data)
 
